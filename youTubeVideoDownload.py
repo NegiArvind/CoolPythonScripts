@@ -15,20 +15,22 @@ def downloadVideoWithSound(stringUrl, path):
 
         youTubeVariable = YouTube(stringUrl)
         # video=video.get("mp4","480")
-        
+
         myTitle = youTubeVariable.title
         print(myTitle)  # title of you tube video
         # print(youTubeVariable.thumbnail_url)  # png image used on you tube video
         # print(youTubeVariable.streams.all())  # it will return all the streams available for this video
-        stream = youTubeVariable.streams.first()  # getting first stream
+        # stream = youTubeVariable.streams.filter(res="480p").first()  # get that stream whose resolution is 480p
         # print("first stream", stream)
+
+        stream = youTubeVariable.streams.first()
 
         # stream.download('/home/arvind/Downloads/Video',myTitle+" "+datetime.now().ctime())  # downloading video and saved into specific folder
 
         print("Downloading...")
         stream.download(path,
                         myTitle + " " + datetime.now().ctime())  # downloading video and saved into specific folder
-        # second argument is the filename or videoname
+        # second argument is the filename or video name
         youTubeVariable.register_on_complete_callback(
             completionMessage(stream, None))  # Whenever video will be completed
         # then this method will invoke
