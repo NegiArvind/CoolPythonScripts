@@ -15,6 +15,7 @@ def downloadVideoWithSound(stringUrl, path):
 
         youTubeVariable = YouTube(stringUrl)
         # video=video.get("mp4","480")
+        
         myTitle = youTubeVariable.title
         print(myTitle)  # title of you tube video
         # print(youTubeVariable.thumbnail_url)  # png image used on you tube video
