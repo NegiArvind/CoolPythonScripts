@@ -1,11 +1,12 @@
 from pytube import YouTube
 from datetime import datetime
 
+
 def completionMessage(stream, fileHandle):
     print("Video Downloaded")
 
 
-def downloadVideoWithSound(stringUrl,path):
+def downloadVideoWithSound(stringUrl, path):
     # youTubeVariable = YouTube("https://www.youtube.com/watch?v=aNEnzS_um9U")
 
     print("Fetching Data...")
@@ -24,7 +25,8 @@ def downloadVideoWithSound(stringUrl,path):
         # stream.download('/home/arvind/Downloads/Video',myTitle+" "+datetime.now().ctime())  # downloading video and saved into specific folder
 
         print("Downloading...")
-        stream.download(path,myTitle + " " + datetime.now().ctime())  # downloading video and saved into specific folder
+        stream.download(path,
+                        myTitle + " " + datetime.now().ctime())  # downloading video and saved into specific folder
         # second argument is the filename or videoname
         youTubeVariable.register_on_complete_callback(
             completionMessage(stream, None))  # Whenever video will be completed
@@ -36,7 +38,7 @@ def downloadVideoWithSound(stringUrl,path):
         print("Please enter valid url")
 
 
-def downloadOnlyAudio(url,path):
+def downloadOnlyAudio(url, path):
     print("Fetching Data...")
 
     try:
@@ -59,8 +61,7 @@ def downloadOnlyAudio(url,path):
         print("Please enter a valid url")
 
 
-url=str(input("Enter the you tube url\n"))
-path=input("Enter the path where you want to save this video\n")
-downloadVideoWithSound(url,path)
+url = str(input("Enter the you tube url\n"))
+path = input("Enter the path where you want to save this video\n")
+downloadVideoWithSound(url, path)
 # downloadOnlyAudio(url,path)
-
